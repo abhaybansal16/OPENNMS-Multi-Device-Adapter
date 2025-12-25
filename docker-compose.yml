@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:14
+    container_name: opennms-postgres
+    environment:
+      POSTGRES_USER: opennms
+      POSTGRES_PASSWORD: opennms
+      POSTGRES_DB: opennms
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  opennms:
+    build: .
+    container_name: opennms
+    depends_on:
+      - postgres
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=opennms
+      - POSTGRES_PASSWORD=opennms
+      - POSTGRES_DB=opennms
+      - OPENNMS_DBNAME=opennms
+      - OPENNMS_DBUSER=opennms
+      - OPENNMS_DBPASS=opennms
+    ports:
+      - "8980:8980"
+    volumes:
+      - opennms-data:/opt/opennms/share
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+  opennms-data:
