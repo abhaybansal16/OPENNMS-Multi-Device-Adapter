@@ -114,45 +114,6 @@ device_3.json
 device_4.json
 
 --------------------------------------------------
-Sample Output
---------------------------------------------------
-{
-  "node": {
-    "id": "3",
-    "name": "cat8000v.cisco.com",
-    "label": "CAT8kv-IOSXE",
-    "ip": "10.10.20.48",
-    "location": "DevNet-Lab"
-  },
-  "interfaces": [
-    {
-      "ifIndex": 1,
-      "name": "Gi1",
-      "descr": "GigabitEthernet1",
-      "ip": "10.10.20.48",
-      "speed": 1000000000,
-      "adminStatus": 1,
-      "operStatus": 1
-    }
-  ],
-  "kpis": {
-    "cpu_5min": 14.10,
-    "memory_used": 198192226.35,
-    "memory_free": 1881050069.7
-  },
-  "alarms": [
-    {
-      "id": 17,
-      "severity": "MINOR",
-      "service": "DNS",
-      "ip": "192.168.1.1",
-      "lastEventTime": 1766638276779
-    }
-  ],
-  "timestamp": "2025-12-25T05:36:44Z"
-}
-
---------------------------------------------------
 KPI Source Strategy
 --------------------------------------------------
 Current:
@@ -180,9 +141,3 @@ Use Case
 - Multi-vendor normalization layer
 - Client PoC and demo
 - Integration prototype
-
---------------------------------------------------
-Author
---------------------------------------------------
-Abhay Bansal
-OpenNMS Multi-Device Adapter – Proof of Concept
